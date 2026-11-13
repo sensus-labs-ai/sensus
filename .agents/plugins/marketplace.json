@@ -1,0 +1,12 @@
+{
+  "name": "sensus-labs",
+  "interface": { "displayName": "Sensus Labs" },
+  "plugins": [
+    {
+      "name": "sensus",
+      "source": { "source": "local", "path": "./sensus" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Developer Tools"
+    }
+  ]
+}

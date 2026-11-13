@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "sensus": {
+      "command": "node",
+      "args": ["./dist/sensus.mjs", "mcp"],
+      "cwd": "."
+    }
+  }
+}

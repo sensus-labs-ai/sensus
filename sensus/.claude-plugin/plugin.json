@@ -1,0 +1,8 @@
+{
+  "name": "sensus",
+  "version": "0.1.0",
+  "description": "Your preferences for how agents should work, loaded at the start of every session and saved when you correct the agent.",
+  "author": { "name": "Sensus Labs", "url": "https://sensuslabs.ai" },
+  "homepage": "https://app.sensuslabs.ai",
+  "keywords": ["preferences", "team", "context"]
+}

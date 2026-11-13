@@ -1,0 +1,19 @@
+{
+  "name": "sensus",
+  "version": "0.1.0",
+  "description": "Your preferences for how agents should work, loaded at the start of every session and saved when you correct the agent.",
+  "author": { "name": "Sensus Labs", "url": "https://sensuslabs.ai" },
+  "homepage": "https://app.sensuslabs.ai",
+  "keywords": ["preferences", "team", "context"],
+  "mcpServers": "./.codex-mcp.json",
+  "interface": {
+    "displayName": "Sensus",
+    "shortDescription": "Your preferences for how agents should work",
+    "longDescription": "Sensus keeps your preferences for how agents should work. They are loaded at the start of every session for the repository you are in, and saved when you correct the agent. You see, change, turn off and undo every preference in the Sensus web app.",
+    "developerName": "Sensus Labs",
+    "category": "Developer Tools",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://sensuslabs.ai",
+    "defaultPrompt": ["onboard this project onto sensus", "what are my sensus preferences here?"]
+  }
+}

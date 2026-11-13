@@ -1,0 +1,18 @@
+{
+  "description": "Loads your Sensus preferences for the repository at the start of a session. It never blocks a session.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/dist/sensus.mjs\" hook session-start",
+            "timeout": 10,
+            "statusMessage": "loading sensus preferences"
+          }
+        ]
+      }
+    ]
+  }
+}

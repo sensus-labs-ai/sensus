@@ -1,0 +1,13 @@
+{
+  "name": "sensus-labs",
+  "owner": { "name": "Sensus Labs", "url": "https://sensuslabs.ai" },
+  "metadata": { "description": "Sensus: your preferences for how agents should work." },
+  "plugins": [
+    {
+      "name": "sensus",
+      "source": "./sensus",
+      "description": "Your preferences for how agents should work, loaded at the start of every session and saved when you correct the agent.",
+      "version": "0.1.0"
+    }
+  ]
+}

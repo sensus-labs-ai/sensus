@@ -1,6 +1,8 @@
 {
   "name": "sensus",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "license": "MIT",
+  "repository": "https://github.com/sensus-labs-ai/sensus",
   "description": "Your preferences for how agents should work, loaded at the start of every session and saved when you correct the agent.",
   "author": { "name": "Sensus Labs", "url": "https://sensuslabs.ai" },
   "homepage": "https://app.sensuslabs.ai",
@@ -14,6 +16,9 @@
     "category": "Developer Tools",
     "capabilities": ["Read", "Write"],
     "websiteURL": "https://sensuslabs.ai",
+    "brandColor": "#1a1a1a",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png",
     "defaultPrompt": ["onboard this project onto sensus", "what are my sensus preferences here?"]
   }
 }

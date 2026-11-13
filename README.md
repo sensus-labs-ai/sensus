@@ -42,6 +42,10 @@ One key, which lets agents on this computer act as you in Sensus. It is kept in 
 
 Sensus does not read your chats or your code. The plugin sends the address of the repository you are in (as host/owner/name) and what the agent saves as a preference.
 
+## Licence
+
+The plugin is under the MIT licence (`LICENSE`). The name Sensus and the "s." mark are Sensus Labs' and are not part of that licence.
+
 ## What is in here
 
 `sensus/dist/sensus.mjs` is the whole program, built from source and not minified so you can read what the hook runs. `sensus/hooks/hooks.json` starts it at the start of a session, and `sensus/.mcp.json` starts it as the tools.

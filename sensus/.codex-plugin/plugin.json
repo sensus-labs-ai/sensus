@@ -1,6 +1,6 @@
 {
   "name": "sensus",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "repository": "https://github.com/sensus-labs-ai/sensus",
   "description": "Your preferences for how agents should work, loaded at the start of every session and saved when you correct the agent.",
@@ -8,6 +8,7 @@
   "homepage": "https://app.sensuslabs.ai",
   "keywords": ["preferences", "team", "context"],
   "mcpServers": "./.codex-mcp.json",
+  "hooks": "./hooks/codex.json",
   "interface": {
     "displayName": "Sensus",
     "shortDescription": "Your preferences for how agents should work",

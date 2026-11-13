@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${PLUGIN_ROOT}/dist/sensus.mjs\" hook session-start",
+            "timeout": 10,
+            "statusMessage": "loading sensus preferences"
+          }
+        ]
+      }
+    ]
+  }
+}

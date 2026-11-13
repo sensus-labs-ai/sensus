@@ -7,7 +7,7 @@
       "name": "sensus",
       "source": "./sensus",
       "description": "Your preferences for how agents should work, loaded at the start of every session and saved when you correct the agent.",
-      "version": "0.1.1"
+      "version": "0.1.2"
     }
   ]
 }

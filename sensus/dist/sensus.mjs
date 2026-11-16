@@ -51,7 +51,7 @@ async function exchange(fetchImpl, deviceCode) {
   const { status, body } = await json(fetchImpl, origin() + "/api/companion/exchange", { method: "POST", body: JSON.stringify({ device_code: deviceCode }) }, 1e4);
   const b = body;
   if (status !== 200 || !b) throw new Error("sensus answered " + status);
-  if (b.status === "approved" && b.key) return { status: "approved", key: b.key, name: b.name ?? "" };
+  if (b.status === "approved" && b.key) return { status: "approved", key: b.key, name: b.name ?? "", account: typeof b.account === "string" ? b.account : "" };
   if (b.status === "pending" || b.status === "denied") return { status: b.status };
   return { status: "expired" };
 }
@@ -204,7 +204,7 @@ async function connect(deps) {
         waiting = null;
         await saveKey(at, got.key);
         return say(
-          `connected: "${got.name}" is approved, and its key is kept on this computer. the sensus tools work now. from the next session, preferences arrive at the start by themselves. carry on with what the person asked.`
+          `connected${got.account ? ` to the sensus account ${got.account}` : ""}: "${got.name}" is approved, and its key is kept on this computer. tell the person which account it is. the sensus tools work now. from the next session, preferences arrive at the start by themselves. carry on with what the person asked.`
         );
       }
       if (got.status === "denied") {
@@ -288,7 +288,7 @@ async function repositoryOf(cwd) {
 var ROOM = 9e3;
 var PATIENCE_MS = 4e3;
 var NOT_CONNECTED = "Sensus is installed, but this computer is not connected to it, so no preferences were loaded. Say nothing about this unless the person asks about Sensus, asks to connect, or asks to onboard this project; then use the sensus onboard skill, or call sensus_connect.";
-var DISCONNECTED = "Sensus: this computer was disconnected in the Sensus web app, so no preferences were loaded. Tell the person in one line, and call sensus_connect if they want to connect it again.";
+var DISCONNECTED = "Sensus: this computer is no longer connected, so no preferences were loaded. It was disconnected in the Sensus web app, or nothing had used it for 90 days. Tell the person in one line, and call sensus_connect if they want to connect it again.";
 function intro(at) {
   return `Sensus preferences for this session, from ${at}. They are the person's saved preferences for how you should work: follow the ones listed under "follow" unless the person's request says otherwise. When the person corrects you or states a lasting preference, save it with sensus_save_preference and tell them in one line.
 
@@ -345,7 +345,9 @@ function server(deps) {
     try {
       return await callTool(deps.fetchImpl, key, name, sent);
     } catch (err) {
-      if (err instanceof NotConnected) return { text: "this computer was disconnected from sensus in the web app. call sensus_connect to connect it again, then call this tool again.", isError: true };
+      if (err instanceof NotConnected) {
+        return { text: "this computer is no longer connected to sensus: it was disconnected in the web app, or nothing had used it for 90 days. call sensus_connect to connect it again, then call this tool again.", isError: true };
+      }
       return { text: "could not reach sensus. check the network and try again.", isError: true };
     }
   }

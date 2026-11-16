@@ -28,12 +28,12 @@ Then start a new session in your project and say:
 onboard this project onto sensus
 ```
 
-A page opens in your browser. Sign in, check that it shows the code your agent tells you, and press approve. That connects this computer once, for Claude Code and Codex and every project.
+A page opens in your browser. Sign in, check that it shows the code your agent tells you, and press approve. That connects this computer once, for Claude Code and Codex and every project. Your agent then says which Sensus account the computer was connected to. Only approve a computer you asked your own agent to connect.
 
 ## What it does
 
 - At the start of every session it loads your preferences for the repository you are in, so the agent has them before your first message. It waits a few seconds at most and never holds a session up.
-- It gives the agent the Sensus tools: read preferences, save a correction, turn one off, remove one, and make or archive a project. The agent acts as you and can do what you can do in the web app, and nothing more. It asks you in the chat before turning off, removing or archiving.
+- It gives the agent the Sensus tools: read preferences, save a correction, turn one off, remove one, and make or archive a project. On a project with other people it can also read who is on it, suggest what it learned to the project's owner, and for an owner answer what members suggested. The agent acts as you and can do what you can do in the web app, and nothing more. It asks you in the chat before turning off, removing, archiving or answering a suggestion. Two things stay yours to do in the browser: approving a computer and joining someone's project.
 - The `onboard` skill puts a repository on Sensus: it finds or makes the project, reads the repository's docs, and saves what it finds as preferences.
 
 ## Everything it runs, reads and sends
@@ -55,7 +55,7 @@ It talks to one server, https://app.sensuslabs.ai, over HTTPS, and sends:
 - your computer's name, once, when you connect it;
 - the tool calls your agent makes, such as a preference it saves, with the key.
 
-It does not read your chats, your code or your files, and it does not change Claude's or Codex's settings. To cut a computer off, open "connect" in the web app and press "disconnect".
+It does not read your chats, your code or your files, and it does not change Claude's or Codex's settings. To cut a computer off, open "connect" in the web app and press "disconnect". A computer that nothing has used for 90 days is disconnected by itself, and connects again with one approval.
 
 Three environment variables change where it looks, for development: `SENSUS_ORIGIN` (another Sensus address; a key is only ever sent over HTTPS or to localhost), `SENSUS_HOME` (the folder for the key file) and `SENSUS_STORE=file` (use the file only).
 
